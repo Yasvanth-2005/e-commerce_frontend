@@ -6,6 +6,8 @@ import { UserActions } from "../store/userSlice";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { fetchOrders, orderActions } from "../store/orderSlice";
+import { cartActions, fetchCart } from "../store/cartSlice";
 
 const Slidebar = () => {
   const location = useLocation();
@@ -28,6 +30,7 @@ const Slidebar = () => {
       });
       localStorage.removeItem("token");
       dispatch(UserActions.removeUser());
+      window.location.reload();
       toast.success("User Logged out");
       navigate("/login");
     } catch (error) {

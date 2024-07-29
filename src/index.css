@@ -15,8 +15,9 @@
   flex-direction: column;
 }
 @media (max-width: 512px) {
-  aside.css-1wvake5,
-  .sidebar {
-    width: 120px;
+  .css-1wvake5,
+  aside.sidebar {
+    min-width: 100px;
+    width: 100px;
   }
 }

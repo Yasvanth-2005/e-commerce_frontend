@@ -18,9 +18,8 @@ const orderSlice = createSlice({
   name: "Orders",
   initialState: { data: null, status: "idle", error: null },
   reducers: {
-    addOrder: (state, action) => {
-      state.user = action.payload;
-      state.error = null;
+    removeOrder: (state, action) => {
+      state.data = null;
     },
   },
   extraReducers: (builder) => {

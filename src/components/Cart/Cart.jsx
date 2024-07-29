@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom/dist";
 const Cart = () => {
   const cartError = useSelector((state) => state.cart.error);
   const cartData = useSelector((state) => state.cart.data);
+  const userData = useSelector((state) => state.user.data);
   const cartState = useSelector((state) => state.cart.status);
 
   // useEffect(() => {
@@ -37,7 +38,7 @@ const Cart = () => {
 
   return (
     <div className="py-5">
-      {cartState === "loaded" && cartData ? (
+      {cartState === "loaded" && cartData && userData ? (
         <>
           {cartData.map((cart) => (
             <CartCard cart={cart} key={cart.productId._id} />

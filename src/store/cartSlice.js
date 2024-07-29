@@ -18,11 +18,9 @@ const cartSlice = createSlice({
   name: "Cart",
   initialState: { data: null, status: "idle", error: null },
   reducers: {
-    addCart: (state, action) => {
-      state.user = action.payload;
-      state.error = null;
+    removeCart: (state, action) => {
+      state.data = null;
     },
-    updateCart: (state, action) => {},
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCart.pending, (state, action) => {
