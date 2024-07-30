@@ -29,13 +29,6 @@ const Products = () => {
     }
   }, [dispatch, productState]);
 
-  useEffect(() => {
-    if (productError) {
-      toast.error(productError);
-      navigate("/login");
-    }
-  }, [productError, navigate]);
-
   return (
     <div className="py-5 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
       {productState === "loaded" && productData ? (

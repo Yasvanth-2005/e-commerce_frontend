@@ -30,7 +30,10 @@ const Slidebar = () => {
       });
       localStorage.removeItem("token");
       dispatch(UserActions.removeUser());
-      window.location.reload();
+      dispatch(orderActions.removeOrder());
+      dispatch(cartActions.removeCart());
+      dispatch(fetchOrders());
+      dispatch(fetchCart());
       toast.success("User Logged out");
       navigate("/login");
     } catch (error) {

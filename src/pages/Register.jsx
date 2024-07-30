@@ -15,7 +15,7 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  const userData = useSelector((state) => state.user.data);
+  const userData = useSelector((state) => state.user.user);
   useEffect(() => {
     if (userData) {
       navigate("/");
