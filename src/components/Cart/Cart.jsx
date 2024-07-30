@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchCart } from "../../store/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom/dist";
+import { toast } from "react-hot-toast";
 
 const Cart = () => {
   const cartError = useSelector((state) => state.cart.error);
@@ -20,10 +21,18 @@ const Cart = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (cartState === "idle") {
+    if (token && cartState === "idle") {
       dispatch(fetchCart(token));
     }
   }, [dispatch, cartState]);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (cartError && cartError === "Invalid token") {
+      toast.error("Token Expired");
+      navigate("/login");
+    }
+  }, [cartError, navigate]);
 
   if (!userData) {
     return (

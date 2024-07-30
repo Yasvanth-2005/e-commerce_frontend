@@ -4,7 +4,8 @@ import OrderSkeleton from "./OrderSkeleton";
 
 import { useSelector, useDispatch } from "react-redux";
 import { fetchOrders } from "../../store/orderSlice";
-import { Link } from "react-router-dom/dist";
+import { Link, useNavigate } from "react-router-dom/dist";
+import { toast } from "react-hot-toast";
 
 const Order = () => {
   const orderError = useSelector((state) => state.order.error);
@@ -22,10 +23,18 @@ const Order = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (orderState === "idle") {
+    if (token && orderState === "idle") {
       dispatch(fetchOrders(token));
     }
   }, [dispatch, orderState]);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (orderError && orderError === "Invalid token") {
+      toast.error("Token Expired");
+      navigate("/login");
+    }
+  }, [orderError, navigate]);
 
   if (!userData) {
     return (
