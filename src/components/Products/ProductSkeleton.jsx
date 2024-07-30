@@ -10,14 +10,12 @@ const ProductSkeleton = () => {
       <h2 className="text-lg font-semibold w-[20px]">
         <Skeleton />
       </h2>
-      <p className="text-sm pb-2">
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <div className="w-[50%]">
         <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <div className="w-[50%]">
-          <Skeleton />
-        </div>
-      </p>
+      </div>
       <div className="py-[0.4rem] rounded my-1">
         <Skeleton />
       </div>

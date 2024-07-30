@@ -15,9 +15,9 @@ const Cart = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(cartError, cartData, cartState);
-  }, [cartData, cartError, cartState]);
+  // useEffect(() => {
+  //   console.log(cartError, cartData, cartState);
+  // }, [cartData, cartError, cartState]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");

@@ -20,6 +20,8 @@ const orderSlice = createSlice({
   reducers: {
     removeOrder: (state, action) => {
       state.data = null;
+      state.status = "idle";
+      state.error = null;
     },
   },
   extraReducers: (builder) => {

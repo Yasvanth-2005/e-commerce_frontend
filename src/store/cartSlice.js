@@ -20,6 +20,8 @@ const cartSlice = createSlice({
   reducers: {
     removeCart: (state, action) => {
       state.data = null;
+      state.status = "idle";
+      state.error = null;
     },
   },
   extraReducers: (builder) => {

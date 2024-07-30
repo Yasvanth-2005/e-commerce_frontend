@@ -28,7 +28,9 @@ const userSlice = createSlice({
       state.status = "loaded";
     },
     removeUser: (state, action) => {
-      state.user = null;
+      state.data = null;
+      state.status = "idle";
+      state.error = null;
     },
   },
   extraReducers: (bulider) => {
